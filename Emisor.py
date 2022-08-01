@@ -13,6 +13,9 @@ class Aplicacion:
         print(f"El mensaje es, {self.texto}")
         
 
+class Verificacion:
+    pass
+
 cadena = input("Ingrese la cadena: ")
 text = Aplicacion(cadena)
 text.mensaje()
