@@ -1,4 +1,3 @@
-from operator import imod
 from bitarray import bitarray
 from random import random
 
