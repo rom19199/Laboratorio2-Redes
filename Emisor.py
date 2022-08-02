@@ -53,14 +53,14 @@ class Ruido(Aplicacion):
             return valor             
 
 #input del str
-cadena = input("Ingrese la cadena: ")
-text = Aplicacion(cadena)
-texto = text.mensaje()
-print("la cadena es: ", texto)
-
-verificacion = Verificacion(texto)
-texto = verificacion.str2binary() 
-
-ruido = Ruido(texto)
-ruido.agregarRuido()
+#cadena = input("Ingrese la cadena: ")
+#text = Aplicacion(cadena)
+#texto = text.mensaje()
+#print("la cadena es: ", texto)
+#
+#verificacion = Verificacion(texto)
+#texto = verificacion.str2binary() 
+#
+#ruido = Ruido(texto)
+#ruido.agregarRuido()
 
