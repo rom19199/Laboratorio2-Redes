@@ -32,13 +32,8 @@ class Verificacion(Aplicacion):
         res = ''.join(format(ord(i), '08b') for i in self.texto)
         arr = bitarray(res)
         arr1 = bitarray(res)      
-        # print(self.texto)
         return arr, arr1
     
-    #  def bitarray(self):
-    #      #str2ba = ba.frombytes(f"{self.texto}".encode('utf-8'))
-    #      str2ba = arr.frombytes({self.texto}.encode('utf-8'))
-    #      return str2ba
         
 class Ruido:
     def agregarRuido(self, texto):
@@ -53,7 +48,8 @@ class Ruido:
 
     def prob(self):
         rand = random()
-        return (rand > 0.5)
+        return (rand <= 0.01)
+
 
     def modificacion(self, valor):
         if self.prob():
