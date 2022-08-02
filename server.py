@@ -23,7 +23,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     data = b''
                     data += conn.recv(int(data_len))
                     data_deserial = pickle.loads(data)
-                    print(data_deserial)
+                    print(data_deserial.mensaje())
+                    print(data_deserial.mensajeR())
                     print(type(data_deserial))
                 
     except KeyboardInterrupt:       #Ctrl + C

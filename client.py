@@ -18,19 +18,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     print("la cadena es: ", texto)
 
     verificacion = Verificacion(texto)
-    texto = verificacion.str2binary() 
+    texto, textoR = verificacion.str2binary() 
+    text.setTexto(texto)
+    text.setTextoR(textoR)
 
-    ruido = Ruido(texto)
-    ruido.agregarRuido()
-
-    names = [100, 
-             'Maria', 
-             'Rodrigo',  
-             3.1416, 
-             'Juan', 
-             'Nabucodonosor', 
-             'Sandro',
-             (1+3j)]
+    ruido = Ruido()
+    textoR = ruido.agregarRuido(text.mensajeR())
+    text.setTextoR(textoR)
 
     data_serial = pickle.dumps(text)
 
