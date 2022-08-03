@@ -1,5 +1,6 @@
 import socket
 import pickle
+from hamming import hamming
 
 HOST = "127.0.0.1"  #Direccion loopback
 PORT = 65123        # > 1023 (Puerto escucha)
@@ -26,6 +27,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     print(data_deserial.mensaje())
                     print(data_deserial.mensajeR())
                     print(type(data_deserial))
+                    print(hamming(data_deserial.mensajeR()))
+                    
                 
     except KeyboardInterrupt:       #Ctrl + C
         pass
