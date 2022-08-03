@@ -40,8 +40,8 @@ class Verify():
 
      end = time.time()
 
-
-    def check_CRC32(self, b):
+#https://python.hotexamples.com/es/examples/kafka.util/-/crc32/python-crc32-function-examples.html
+    def checkCRC32(self, b):
       a = b
       d = '1001'
       c = a[:4]
