@@ -1,5 +1,6 @@
 import socket
 import pickle
+from Checksum import findChecksum
 
 HOST = "127.0.0.1"  #Direccion loopback
 PORT = 65123        # > 1023 (Puerto escucha)

@@ -9,6 +9,7 @@ class Aplicacion:
         #self.cadena = input("Escriba la cadena de texto: ")
         self.texto = texto
         self.textoR = None
+        self.lenArr = None
         
     def mensaje(self):
         #print(f"El mensaje es, {self.texto}")
@@ -17,12 +18,17 @@ class Aplicacion:
     def mensajeR(self):
         return self.textoR
 
+    def getlen(self):
+        return self.lenArr
+
     def setTexto(self, texto):
         self.texto = texto
 
     def setTextoR(self, textoR):
         self.textoR = textoR
 
+    def setlen(self, texto):
+        self.lenArr = texto
         
         
 
@@ -31,8 +37,9 @@ class Verificacion(Aplicacion):
      def str2binary(self):
         res = ''.join(format(ord(i), '08b') for i in self.texto)
         arr = bitarray(res)
-        arr1 = bitarray(res)      
-        return arr, arr1
+        arr1 = bitarray(res)
+        lenArr = len(arr)   
+        return arr, arr1, lenArr
     
         
 class Ruido:
@@ -61,17 +68,19 @@ class Ruido:
             return valor             
 
 #input del str
-# cadena = input("Ingrese la cadena: ")
-# text = Aplicacion(cadena)
-# texto = text.mensaje()
-# print("la cadena es: ", texto)
+cadena = input("Ingrese la cadena: ")
+text = Aplicacion(cadena)
+texto = text.mensaje()
+print("la cadena es: ", texto)
 
-# verificacion = Verificacion(texto)
-# texto, textoR = verificacion.str2binary() 
-# text.setTexto(texto)
-# text.setTextoR(textoR)
+verificacion = Verificacion(texto)
+texto, textoR, lenArr = verificacion.str2binary() 
+text.setTexto(texto)
+text.setTextoR(textoR)
+text.setlen(lenArr)
 
-# ruido = Ruido()
-# textoR = ruido.agregarRuido(text.mensajeR())
-# text.setTextoR(textoR)
-
+ruido = Ruido()
+textoR = ruido.agregarRuido(text.mensajeR())
+text.setTextoR(textoR)
+print(text.mensaje())
+print(text.getlen())

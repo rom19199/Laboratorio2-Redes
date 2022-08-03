@@ -2,6 +2,8 @@ import socket
 import time
 import pickle
 from Emisor import Aplicacion, Verificacion, Ruido
+from Checksum import checkReceiverChecksum
+
 
 HOST = "127.0.0.1"          #IP del servidor
 PORT = 65123                #Puerto de envio
