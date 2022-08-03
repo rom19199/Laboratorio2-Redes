@@ -9,7 +9,8 @@ class Aplicacion:
         #self.cadena = input("Escriba la cadena de texto: ")
         self.texto = texto
         self.textoR = None
-        self.lenArr = None
+        self.checkSum = None
+        self.checkReciever = None
         
     def mensaje(self):
         #print(f"El mensaje es, {self.texto}")
@@ -21,6 +22,12 @@ class Aplicacion:
     def getlen(self):
         return self.lenArr
 
+    def getCheckSum(self):
+        return self.checkSum
+
+    def getCheckReciever(self):
+        return self.checkReciever
+
     def setTexto(self, texto):
         self.texto = texto
 
@@ -29,6 +36,12 @@ class Aplicacion:
 
     def setlen(self, texto):
         self.lenArr = texto
+
+    def setCheckSum(self, texto):
+        self.checkSum = texto
+
+    def setCheckReciever(self, texto):
+        self.checkReciever = texto
         
         
 
@@ -38,8 +51,7 @@ class Verificacion(Aplicacion):
         res = ''.join(format(ord(i), '08b') for i in self.texto)
         arr = bitarray(res)
         arr1 = bitarray(res)
-        lenArr = len(arr)   
-        return arr, arr1, lenArr
+        return arr, arr1
     
         
 class Ruido:
@@ -68,19 +80,20 @@ class Ruido:
             return valor             
 
 #input del str
-cadena = input("Ingrese la cadena: ")
-text = Aplicacion(cadena)
-texto = text.mensaje()
-print("la cadena es: ", texto)
+# cadena = input("Ingrese la cadena: ")
+# text = Aplicacion(cadena)
+# texto = text.mensaje()
+# print("la cadena es: ", texto)
 
-verificacion = Verificacion(texto)
-texto, textoR, lenArr = verificacion.str2binary() 
-text.setTexto(texto)
-text.setTextoR(textoR)
-text.setlen(lenArr)
+# verificacion = Verificacion(texto)
+# texto, textoR, lenArr = verificacion.str2binary() 
+# text.setTexto(texto)
+# text.setTextoR(textoR)
+# text.setlen(int(lenArr / 4))
 
-ruido = Ruido()
-textoR = ruido.agregarRuido(text.mensajeR())
-text.setTextoR(textoR)
-print(text.mensaje())
-print(text.getlen())
+# ruido = Ruido()
+# textoR = ruido.agregarRuido(text.mensajeR())
+# text.setTextoR(textoR)
+# print(text.mensaje())
+# print(text.getlen())
+# print(text.mensaje()[0:text.getlen()])

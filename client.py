@@ -2,7 +2,7 @@ import socket
 import time
 import pickle
 from Emisor import Aplicacion, Verificacion, Ruido
-from Checksum import checkReceiverChecksum
+from Checksum import findChecksum
 
 
 HOST = "127.0.0.1"          #IP del servidor
@@ -23,6 +23,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     texto, textoR = verificacion.str2binary() 
     text.setTexto(texto)
     text.setTextoR(textoR)
+    text.setCheckSum(findChecksum(text.mensaje().to01(), 8))
 
     ruido = Ruido()
     textoR = ruido.agregarRuido(text.mensajeR())

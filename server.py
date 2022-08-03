@@ -1,6 +1,7 @@
 import socket
 import pickle
-from Checksum import findChecksum
+from Emisor import Aplicacion
+from Checksum import checkReceiverChecksum, printingResults
 
 HOST = "127.0.0.1"  #Direccion loopback
 PORT = 65123        # > 1023 (Puerto escucha)
@@ -26,7 +27,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     data_deserial = pickle.loads(data)
                     print(data_deserial.mensaje())
                     print(data_deserial.mensajeR())
-                    print(type(data_deserial))
+                    data_deserial.setCheckReciever(checkReceiverChecksum(data_deserial.mensajeR().to01(), 8, data_deserial.getCheckSum()))
+                    printingResults(data_deserial.getCheckSum(), data_deserial.getCheckReciever())
                 
     except KeyboardInterrupt:       #Ctrl + C
         pass

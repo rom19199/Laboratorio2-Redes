@@ -56,35 +56,37 @@ def checkReceiverChecksum(ReceivedMessage, k, Checksum):
  
  
 # Driver Code
-SentMessage = "10010101011000111001010011101100"
-k = 8
-#ReceivedMessage = "10000101011000111001010011101101"
-ReceivedMessage = "10010101011000111001010011101100"
-# Calling the findChecksum() function
-Checksum = findChecksum(SentMessage, k)
+# SentMessage = "01100001011100110110010001100110"
+# print(SentMessage)
+# k = 8
+# #ReceivedMessage = "10000101011000111001010011101101"
+# ReceivedMessage = "10010101011000111001010011101100"
+# # Calling the findChecksum() function
+# Checksum = findChecksum(SentMessage, k)
  
-# Calling the checkReceiverChecksum() function
-ReceiverChecksum = checkReceiverChecksum(ReceivedMessage, k, Checksum)
- 
-# Printing Checksum
-print("SENDER SIDE CHECKSUM: ", Checksum)
-print("RECEIVER SIDE CHECKSUM: ", ReceiverChecksum)
-finalsum=bin(int(Checksum,2)+int(ReceiverChecksum,2))[2:]
- 
-# Finding the sum of checksum and received checksum
-finalcomp=''
-for i in finalsum:
-    if(i == '1'):
-        finalcomp += '0'
+# # Calling the checkReceiverChecksum() function
+# ReceiverChecksum = checkReceiverChecksum(ReceivedMessage, k, Checksum)
+
+def printingResults(Checksum, ReceiverChecksum):
+    # Printing Checksum
+    print("SENDER SIDE CHECKSUM: ", Checksum)
+    print("RECEIVER SIDE CHECKSUM: ", ReceiverChecksum)
+    finalsum=bin(int(Checksum,2)+int(ReceiverChecksum,2))[2:]
+    
+    # Finding the sum of checksum and received checksum
+    finalcomp=''
+    for i in finalsum:
+        if(i == '1'):
+            finalcomp += '0'
+        else:
+            finalcomp += '1'
+    
+    # If sum = 0, No error is detected
+    if(int(finalcomp,2) == 0):
+        print("Receiver Checksum is equal to 0. Therefore,")
+        print("STATUS: ACCEPTED")
+        
+    # Otherwise, Error is detected
     else:
-        finalcomp += '1'
- 
-# If sum = 0, No error is detected
-if(int(finalcomp,2) == 0):
-    print("Receiver Checksum is equal to 0. Therefore,")
-    print("STATUS: ACCEPTED")
-     
-# Otherwise, Error is detected
-else:
-    print("Receiver Checksum is not equal to 0. Therefore,")
-    print("STATUS: ERROR DETECTED")
+        print("Receiver Checksum is not equal to 0. Therefore,")
+        print("STATUS: ERROR DETECTED")
