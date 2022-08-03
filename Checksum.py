@@ -1,3 +1,4 @@
+# Codigo obtenido de https://www.geeksforgeeks.org/implementing-checksum-using-python/
 # Function to find the Checksum of Sent Message
 def findChecksum(SentMessage, k):
    

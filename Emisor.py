@@ -51,6 +51,16 @@ class Verificacion(Aplicacion):
         res = ''.join(format(ord(i), '08b') for i in self.texto)
         arr = bitarray(res)
         arr1 = bitarray(res)
+        lenArr = len(arr)
+        if (lenArr == 8):
+            arr+= bitarray('000000000000000000000000')
+            arr1+= bitarray('000000000000000000000000')
+        elif (lenArr == 16):
+            arr+= bitarray('0000000000000000')
+            arr1+= bitarray('0000000000000000')
+        elif (lenArr == 24):
+            arr+= bitarray('00000000')
+            arr1+= bitarray('00000000')
         return arr, arr1
     
         
@@ -86,14 +96,11 @@ class Ruido:
 # print("la cadena es: ", texto)
 
 # verificacion = Verificacion(texto)
-# texto, textoR, lenArr = verificacion.str2binary() 
+# texto, textoR = verificacion.str2binary() 
 # text.setTexto(texto)
 # text.setTextoR(textoR)
-# text.setlen(int(lenArr / 4))
 
 # ruido = Ruido()
 # textoR = ruido.agregarRuido(text.mensajeR())
 # text.setTextoR(textoR)
 # print(text.mensaje())
-# print(text.getlen())
-# print(text.mensaje()[0:text.getlen()])
